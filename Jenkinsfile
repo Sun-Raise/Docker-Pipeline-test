@@ -1,6 +1,6 @@
 #!groovy
 
-name = BUILD_NUMBER
+buildNumber = BUILD_NUMBER
 pipeline {
     agent any
     stages {
@@ -15,7 +15,7 @@ pipeline {
         	    checkout scm
         	    script {
                     echo "Hello anand"
-	            echo "$name"
+	            echo "$buildNumber"
                 }
 
         	}
