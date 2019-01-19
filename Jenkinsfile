@@ -30,7 +30,9 @@ pipeline {
         }
 		stage('Docker Publish to Registry') {
 			steps {
-			
+				scripts {
+				// 
+				}
 			}
 		}
 		stage('Build') {
