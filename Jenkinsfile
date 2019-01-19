@@ -54,10 +54,11 @@ pipeline {
 				}
 			}
 		}
-		stage('Remove published Docker Image') {
+		stage('Remove published Docker Image and Container') {
             steps {
                 script {
-                	sh """docker rmi anandtest/nginximages:${dockerImageTag}"""
+                    sh """docker rm  -f Nginx_Docker_test"""
+                	sh """docker rmi -f  anandtest/nginximages:${dockerImageTag}"""
                 }
             }
         }
