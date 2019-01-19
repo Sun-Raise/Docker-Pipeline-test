@@ -54,6 +54,13 @@ pipeline {
 				}
 			}
 		}
+		stage('Remove published Docker Image') {
+            steps {
+                script {
+                	sh """docker rmi anandtest/nginximages:${dockerImageTag}"""
+                }
+            }
+        }
 		stage('Deploy to CSA') {
             steps {
                 script {
