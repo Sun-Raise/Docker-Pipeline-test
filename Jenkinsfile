@@ -1,3 +1,5 @@
+#!groovy
+
 pipeline {
     agent any
     stages {
@@ -10,7 +12,13 @@ pipeline {
         stage('Initialization') {
         	steps {
         	    checkout scm
+        	    script {
+                    gitInfo = getGitInfo()
+                    echo "the change owner ${gitInfo.git_author} (${gitInfo.git_email})"
+                }
+
         	}
+
         }
-    }
+	}
 }
