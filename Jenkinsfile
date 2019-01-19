@@ -57,7 +57,7 @@ pipeline {
 		stage('Deploy to CSA') {
             steps {
                 script {
-                	sh 'docker run -t -d -p 80:80 --name Nginx_Docker_test ${dockerimagerepo}:${dockerImageTag}'
+                	sh """docker run -t -d -p 80:80 --name Nginx_Docker_test ${dockerimagerepo}:${dockerImageTag}'"""
                 }
             }
         }
