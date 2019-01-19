@@ -10,13 +10,13 @@ pipeline {
                 echo 'Cleanup done'
             }
         }  
-		stage('Init') {
+	stage('Init') {
             steps {
                 checkout scm
                 sh 'mkdir -p ./test'
                 script {
-                    dockerImageTag = "${env.BRANCH_NAME}"
-                    echo "the change owner ${gitInfo.git_author} (${gitInfo.git_email})"
+                    
+                    echo "Initilization done"
                 }
             }
         } 
