@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     sh """docker rm  -f Nginx_Docker_test"""
-                	sh """docker rmi -f  anandtest/nginximages:${dockerImageTag}"""
+                	sh """docker rmi -f  anandtest/nginximages"""
                 }
             }
         }
