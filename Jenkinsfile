@@ -1,7 +1,7 @@
 #!groovy
 
 buildNumber = BUILD_NUMBER
-author = CHANGE_AUTHOR
+author = GIT_BRANCH
 pipeline {
     agent any
     stages {
