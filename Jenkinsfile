@@ -1,6 +1,10 @@
 def dockerRegistry = 'hub.docker.com' 
 def buildImage = 'nginx'
-def dockerImageTag = 'latest'
+def dockerImageTag = 'anandtest/nginximages'
+
+
+def gitinfo
+def dockerImageTag
 
 pipeline {
     agent any
@@ -16,10 +20,18 @@ pipeline {
                 checkout scm
                 sh 'mkdir -p ./ssl'
                 script {
+					gitinfo = getGitInfo()
+					dockerImageTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
+					echo "the change owner ${gitinfo.git_author} (${gitinfo.git_email})"
                     echo "Initialization Done"
                 }
             }
         }
+		stage('Docker Publish to Registry') {
+			steps {
+			
+			}
+		}
 		stage('Build') {
             steps {
                 echo "Building Docker Image"
