@@ -1,7 +1,6 @@
 #!groovy
 branch = env.BRANCH_NAME
 def dockerImageTag
-def buildImage = 'nginx'
 def dockerImage
 def dockerImageRepo = 'anandtest/nginximages'
 
@@ -32,7 +31,7 @@ pipeline {
             steps {
                 echo "Building Docker Image"
                 script {
-                       docker.image(buildImage).inside { 
+                       docker.image(nginx).inside { 
 							sh ' ls -ltr'
                         }
                 dockerImage = docker.build "dockerImageRepo:${dockerImageTag}"
