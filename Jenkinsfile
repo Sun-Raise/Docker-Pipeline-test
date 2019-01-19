@@ -39,7 +39,7 @@ pipeline {
 						// sh 'npm install joi'
 						// sh 'npm install express'
                         }
-                    dockerImage = docker.build "${dockerImageTag}:${date}"
+                    dockerImage = docker.build "${dockerImageTag}:latest"
                     sh 'docker images'
                     sh 'docker ps -a'
                     echo "$dockerImage"
