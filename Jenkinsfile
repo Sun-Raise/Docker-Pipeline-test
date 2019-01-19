@@ -15,8 +15,7 @@ pipeline {
                 checkout scm
                 sh 'mkdir -p ./test'
                 script {
-                    gitInfo = getGitInfo()
-                    dockerImageTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
+                    dockerImageTag = "${env.BRANCH_NAME}"
                     echo "the change owner ${gitInfo.git_author} (${gitInfo.git_email})"
                 }
             }
