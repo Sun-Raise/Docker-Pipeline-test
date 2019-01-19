@@ -8,6 +8,7 @@ branch = env.BRANCH_NAME
 
 def gitInfo
 def dockerImageTag
+def commit_id
 
 pipeline {
     agent any
@@ -22,8 +23,11 @@ pipeline {
             steps {
                 checkout scm
                 sh 'mkdir -p ./ssl'
-				sh 'commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')'
-				sh 'echo "the commit id is ${commitId}"'
+		    scripts {
+			    git rev-parse --short HEAD > .git/commit-id
+			    commit_id = readFile('.git/commit-id')
+			    echo " These are the ID ${commit_id}"
+		    }                    
             }
         }
     } 
