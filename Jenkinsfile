@@ -20,7 +20,7 @@ pipeline {
             steps {
                 checkout scm
                 sh 'mkdir -p ./ssl'
-                scripts {
+                script {
 					// gitinfo = getGitInfo()
 					// dockerTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
 					// echo "the change owner ${gitinfo.git_author} (${gitinfo.git_email})"
