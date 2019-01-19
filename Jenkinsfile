@@ -35,7 +35,7 @@ pipeline {
                        docker.image(baseImage).inside { 
 							sh ' ls -ltr'
                         }
-                dockerImage = docker.build "dockerimagerepo:${dockerImageTag}"
+			dockerImage = docker.build "${dockerimagerepo}:${dockerImageTag}"
                     sh 'docker images'
                     sh 'docker ps -a'
                     echo "$dockerImage"
