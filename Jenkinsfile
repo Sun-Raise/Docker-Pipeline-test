@@ -1,7 +1,5 @@
 #!groovy
 
-def 
-
 pipeline {
     agent any
     stages {
@@ -22,3 +20,4 @@ pipeline {
 
         }
 	}
+}
