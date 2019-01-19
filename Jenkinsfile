@@ -1,5 +1,7 @@
 #!groovy
 
+def gitInfo
+
 pipeline {
     agent any
     stages {
