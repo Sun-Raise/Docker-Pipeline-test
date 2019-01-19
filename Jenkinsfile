@@ -2,6 +2,7 @@
 branch = env.BRANCH_NAME
 def dockerImageTag
 def dockerImage
+def baseImage = 'nginx'
 def dockerImageRepo = 'anandtest/nginximages'
 
 
@@ -31,7 +32,7 @@ pipeline {
             steps {
                 echo "Building Docker Image"
                 script {
-                       docker.image(nginx).inside { 
+                       docker.image(baseImage).inside { 
 							sh ' ls -ltr'
                         }
                 dockerImage = docker.build "dockerImageRepo:${dockerImageTag}"
