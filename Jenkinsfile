@@ -1,5 +1,5 @@
 def dockerRegistry = 'hub.docker.com' 
-def buildImage = 'node:7-alpine'
+def buildImage = 'nginx'
 def dockerImageTag = 'latest'
 
 pipeline {
@@ -14,7 +14,7 @@ pipeline {
 		stage('Init') {
             steps {
                 checkout scm
-                sh 'mkdir -p ./test'
+                sh 'mkdir -p ./ssl'
                 script {
                     echo "Initialization Done"
                 }
@@ -25,9 +25,9 @@ pipeline {
                 echo "Building Docker Image"
                 script {
                        docker.image(buildImage).inside { 
-					    sh 'npm --version'
+					    // sh 'npm --version'
 						sh ' ls -ltr'
-                        // sh 'npm install'
+                        			// sh 'npm install'
 						// sh 'npm install joi'
 						// sh 'npm install express'
                         }
