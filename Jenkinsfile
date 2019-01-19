@@ -4,6 +4,7 @@ def dockerImageTag
 def dockerImage
 def baseImage = 'nginx'
 def dockerimagerepo = 'anandtest/nginximages'
+def dockerRegistry = 'hub.docker.com'
 
 
 pipeline {
@@ -43,5 +44,15 @@ pipeline {
                 }
             }
         }
+        stage('Docker Publish to Registry') {
+			steps {
+				echo "Pushing Docker image to Registory"
+				script {
+					sh 'docker login --username="anandgit71" --password="anandgit12" ${dockerRegistry}'
+					sh 'dockerImage.push()'
+					
+				}
+			}
+		}
 	}
 }
