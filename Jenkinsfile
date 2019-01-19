@@ -1,6 +1,11 @@
 #!groovy
 branch = env.BRANCH_NAME
 def dockerImageTag
+def buildImage = 'nginx'
+def dockerImage
+def dockerImageRepo = 'anandtest/nginximages'
+
+
 pipeline {
     agent any
     stages {
@@ -22,6 +27,21 @@ pipeline {
 
         	}
 
+        }
+        stage('Build an Image') {
+            steps {
+                echo "Building Docker Image"
+                script {
+                       docker.image(buildImage).inside { 
+							sh ' ls -ltr'
+                        }
+                dockerImage = docker.build "dockerImageRepo:${dockerImageTag}"
+                    sh 'docker images'
+                    sh 'docker ps -a'
+                    echo "$dockerImage"
+                    
+                }
+            }
         }
 	}
 }
