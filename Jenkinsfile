@@ -1,5 +1,5 @@
 #!groovy
-
+branch = env.BRANCH_NAME
 pipeline {
     agent any
     stages {
@@ -15,7 +15,7 @@ pipeline {
         	    script {
                     echo "Hello anand"
 	            echo "$BUILD_NUMBER"
-			    echo "${env.BRANCH_NAME}"
+			    echo "${branch}"
                 }
 
         	}
