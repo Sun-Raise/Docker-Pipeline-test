@@ -1,6 +1,7 @@
 def dockerRegistry = 'hub.docker.com' 
 def buildImage = 'nginx'
 def dockerImageTag = 'anandtest/nginximages'
+branch = env.BRANCH_NAME
 
 
 def gitinfo
@@ -20,10 +21,10 @@ pipeline {
                 checkout scm
                 sh 'mkdir -p ./ssl'
                 scripts {
-					gitinfo = getGitInfo()
-					dockerTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
-					echo "the change owner ${gitinfo.git_author} (${gitinfo.git_email})"
-                    echo "Initialization Done"
+					// gitinfo = getGitInfo()
+					// dockerTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
+					// echo "the change owner ${gitinfo.git_author} (${gitinfo.git_email})"
+                    echo "Initialization Done ${branch}"
                 }
             }
         }
