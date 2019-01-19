@@ -1,5 +1,6 @@
 #!groovy
 branch = env.BRANCH_NAME
+def dockerImageTag
 pipeline {
     agent any
     stages {
@@ -14,8 +15,9 @@ pipeline {
         	    checkout scm
         	    script {
                     echo "Hello anand"
-	            echo "$BUILD_NUMBER"
-			    echo "${branch}"
+			    	echo "${branch}"
+			    	dockerImageTag = "$BUILD_NUMBER"
+			    	echo "The Job build number are $dockerImageTag"
                 }
 
         	}
