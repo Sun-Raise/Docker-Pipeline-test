@@ -8,7 +8,9 @@ pipeline {
             }
         }  
         stage('Initialization') {
-        	checkout scm
+        	steps {
+        	    checkout scm
+        	}
         }
-	}
+    }
 }
