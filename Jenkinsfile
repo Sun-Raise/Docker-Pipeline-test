@@ -22,11 +22,8 @@ pipeline {
             steps {
                 checkout scm
                 sh 'mkdir -p ./ssl'
-				script {
-                    gitInfo = getGitInfo()
-                    dockerImageTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
-                    echo "the change owner ${gitInfo.git_author} (${gitInfo.git_email})"
-                }
+				sh 'commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')'
+				sh 'echo "the commit id is ${commitId}"'
             }
         }
     } 
