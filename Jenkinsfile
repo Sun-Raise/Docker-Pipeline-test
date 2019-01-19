@@ -1,5 +1,5 @@
 def dockerRegistry = 'hub.docker.com' 
-def buildImage = 'hub.docker.com/node'
+def buildImage = 'hub.docker.com/node:7-alpine'
 def dockerImageTag = 'latest'
 
 pipeline {
@@ -26,8 +26,8 @@ pipeline {
                 script {
                        docker.image(buildImage).inside { 
                         sh 'npm install'
-						sh 'npm install joi'
-						sh 'npm install express'
+						// sh 'npm install joi'
+						// sh 'npm install express'
                         }
                     dockerImage = docker.build "${dockerRegistry}:${dockerImageTag}"
                     sh 'docker images'
