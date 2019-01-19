@@ -1,10 +1,11 @@
+
 def dockerRegistry = 'hub.docker.com' 
 def buildImage = 'nginx'
 def dockerImageTag = 'anandtest/nginximages'
 
 
 def gitinfo
-def dockerImageTag
+def dockerTag
 
 pipeline {
     agent any
@@ -21,7 +22,7 @@ pipeline {
                 sh 'mkdir -p ./ssl'
                 script {
 					gitinfo = getGitInfo()
-					dockerImageTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
+					dockerTag = "${env.BRANCH_NAME}-${gitInfo.git_commit}"
 					echo "the change owner ${gitinfo.git_author} (${gitinfo.git_email})"
                     echo "Initialization Done"
                 }
@@ -53,3 +54,14 @@ pipeline {
         }
     } 
 }
+
+
+
+        
+        stage('Docker Publish to Registry') {
+            steps {
+                echo "Publishing to Docker: ${dockerRegistry}/${dockerImageRepo}:${dockerImageTag}"
+                sh 'docker login --username="anandgit71" --password="anandgit12" ${dockerRegistry}'
+                sh 'dockerImage.push();'
+                }
+            } 
