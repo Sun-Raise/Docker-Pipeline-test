@@ -3,7 +3,7 @@ branch = env.BRANCH_NAME
 def dockerImageTag
 def dockerImage
 def baseImage = 'nginx'
-def dockerimageRepo = 'anandtest/nginximages'
+def dockerimagerepo = 'anandtest/nginximages'
 
 
 pipeline {
