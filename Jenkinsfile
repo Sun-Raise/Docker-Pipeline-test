@@ -1,7 +1,5 @@
 #!groovy
 
-buildNumber = BUILD_NUMBER
-author = GIT_BRANCH
 pipeline {
     agent any
     stages {
@@ -16,9 +14,7 @@ pipeline {
         	    checkout scm
         	    script {
                     echo "Hello anand"
-	            echo "$buildNumber"
 	            echo "$BUILD_NUMBER"
-		    echo  "$author"
                 }
 
         	}
