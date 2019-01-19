@@ -1,12 +1,15 @@
+def dockerRegistry = 'hub.docker.com' 
+
 pipeline {
     agent {
-        docker { image 'nginx' }
+        docker { image 'node' }
     }
     stages {
-        stage('Test') {
+        stage('Clean Workspace') {
             steps {
-                sh 'nginx -version'
+                deleteDir()
+                echo 'Cleanup done'
             }
-        }
-    }
+        }  
+    } 
 }
