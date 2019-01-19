@@ -1,5 +1,5 @@
 def dockerRegistry = 'hub.docker.com' 
-def buildImage = 'hub.docker.com/node:latest'
+def buildImage = 'hub.docker.com/node'
 def dockerImageTag = 'latest'
 
 pipeline {
