@@ -25,7 +25,9 @@ pipeline {
                 echo "Building Docker Image"
                 script {
                        docker.image(buildImage).inside { 
-                        sh 'npm install'
+					    sh 'npm --version'
+						sh ' ls -ltr'
+                        // sh 'npm install'
 						// sh 'npm install joi'
 						// sh 'npm install express'
                         }
