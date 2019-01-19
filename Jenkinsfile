@@ -1,5 +1,6 @@
 #!groovy
 
+name = BRANCH_NAME
 pipeline {
     agent any
     stages {
@@ -14,7 +15,7 @@ pipeline {
         	    checkout scm
         	    script {
                     echo "Hello anand"
-	            echo "$BRANCH_NAME"
+	            echo "$name"
                 }
 
         	}
