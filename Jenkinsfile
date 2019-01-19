@@ -7,5 +7,8 @@ pipeline {
                 echo 'Cleanup done'
             }
         }  
-     }
+        stage('Initialization') {
+        	checkout scm
+        }
+	}
 }
