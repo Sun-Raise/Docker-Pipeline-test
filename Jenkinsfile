@@ -1,6 +1,7 @@
 #!groovy
 
 buildNumber = BUILD_NUMBER
+author = BUILD_NUMBER
 pipeline {
     agent any
     stages {
@@ -16,6 +17,8 @@ pipeline {
         	    script {
                     echo "Hello anand"
 	            echo "$buildNumber"
+	            echo "$BUILD_NUMBER"
+		    echo  "$author"
                 }
 
         	}
