@@ -52,7 +52,7 @@ pipeline {
 				echo "Pushing Docker image to Registory"
 				scripts {
 					sh 'docker login --username="anandgit71" --password="anandgit12" ${dockerRegistry}'
-					dockerImage.push();
+					sh 'dockerImage.push();'
 					
 				}
 			}
