@@ -1,7 +1,7 @@
 #!groovy
 
 buildNumber = BUILD_NUMBER
-author = BUILD_NUMBER
+author = CHANGE_AUTHOR
 pipeline {
     agent any
     stages {
