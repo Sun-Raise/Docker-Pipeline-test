@@ -14,7 +14,7 @@ pipeline {
         	    checkout scm
         	    script {
                     echo "Hello anand"
-	            echo "$date"
+	            echo "$BRANCH_NAME"
                 }
 
         	}
