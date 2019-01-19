@@ -1,6 +1,6 @@
 #!groovy
 
-name = BRANCH_NAME
+name = BUILD_NUMBER
 pipeline {
     agent any
     stages {
