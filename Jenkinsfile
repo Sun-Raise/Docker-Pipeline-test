@@ -14,6 +14,7 @@ pipeline {
         	    checkout scm
         	    script {
                     echo "Hello anand"
+	            echo "$date"
                 }
 
         	}
