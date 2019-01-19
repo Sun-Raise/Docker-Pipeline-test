@@ -1,6 +1,6 @@
 #!groovy
 
-def gitInfo
+def 
 
 pipeline {
     agent any
@@ -15,12 +15,10 @@ pipeline {
         	steps {
         	    checkout scm
         	    script {
-                    gitInfo = getGitInfo()
-                    echo "the change owner ${gitInfo.git_author} (${gitInfo.git_email})"
+                    echo "Hello anand"
                 }
 
         	}
 
         }
 	}
-}
