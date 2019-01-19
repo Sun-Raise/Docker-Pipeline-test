@@ -15,7 +15,7 @@ pipeline {
         	    script {
                     echo "Hello anand"
 	            echo "$BUILD_NUMBER"
-	            echo "$env.BRANCH_NAME"
+			    echo "${env.BRANCH_NAME}"
                 }
 
         	}
