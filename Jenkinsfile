@@ -6,6 +6,7 @@ def dockerImage
 def baseImage = 'nginx'
 def dockerimagerepo = 'anandtest/nginximages'
 def dockerRegistry = 'hub.docker.com'
+def dockerlist
 
 
 pipeline {
@@ -60,8 +61,10 @@ pipeline {
 		stage('Remove published Docker Image and Container') {
             steps {
                 script {
+                    dockerlist = docker images
+                    echo "The Docker images are $dockerlist"
                     sh """docker rm  -f Nginx_Docker_test"""
-                	sh """docker rmi $(docker images)"""
+                	// sh 'docker rmi $(docker images)'
                 }
             }
         }
