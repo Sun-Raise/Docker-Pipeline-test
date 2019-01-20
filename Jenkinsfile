@@ -1,6 +1,7 @@
 #!groovy
 branch = env.BRANCH_NAME
 def dockerImageTag
+def build_number
 def dockerImage
 def baseImage = 'nginx'
 def dockerimagerepo = 'anandtest/nginximages'
@@ -23,6 +24,8 @@ pipeline {
                     echo "Hello anand"
 			    	echo "${branch}"
 			    	dockerImageTag="$BUILD_NUMBER"
+                    build_number="${env.BUILD_ID}"
+                    echo "The build number $build_number"
 			    	echo "The Job build number are $dockerImageTag"
                 }
 
