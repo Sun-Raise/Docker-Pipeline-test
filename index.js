@@ -5,7 +5,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended : true}));
 app.use(express.static('homepage'));
 
-// Array
+// Array declaration
 const movies = [
 	{ id: 1, name:'Herror'},
 	{ id: 2, name:'comedy'},
